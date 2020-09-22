@@ -29,9 +29,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Rotate_Crop_Activity extends AppCompatActivity {
+public class RotateCropActivity extends AppCompatActivity {
 
-	Bitmap textBit = Image_Display_Activity.bm;
+	Bitmap textBit = ImageDisplayActivity.bm;
 	CropImageView cropImageView;
 	int rot = 0;
 
@@ -49,10 +49,10 @@ public class Rotate_Crop_Activity extends AppCompatActivity {
 		cropBitmapIcon.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				textBit = Image_Display_Activity.bm = cropImageView.getCroppedImage();
-				(Image_Display_Activity.imageDisplay).setImageBitmap(Image_Display_Activity.bm);
+				textBit = ImageDisplayActivity.bm = cropImageView.getCroppedImage();
+				( ImageDisplayActivity.imageDisplay).setImageBitmap( ImageDisplayActivity.bm);
 				Rect wh = cropImageView.getCropRect();
-				Image_Display_Activity.iHeight = wh.height();
+				ImageDisplayActivity.iHeight = wh.height();
 				Toast.makeText(getApplicationContext(), "Crop Applied", Toast.LENGTH_SHORT).show();
 			}
 		});
@@ -88,7 +88,7 @@ public class Rotate_Crop_Activity extends AppCompatActivity {
 		saveCroppedIcon.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				textBit = Image_Display_Activity.bm = cropImageView.getCroppedImage();
+				textBit = ImageDisplayActivity.bm = cropImageView.getCroppedImage();
 				try {
 					saveImage();
 				} catch (Exception e) {
@@ -142,7 +142,7 @@ public class Rotate_Crop_Activity extends AppCompatActivity {
 
 	private void saveImage() throws Exception {
 
-		(Image_Display_Activity.imageDisplay).setImageBitmap(Image_Display_Activity.bm);
+		( ImageDisplayActivity.imageDisplay).setImageBitmap( ImageDisplayActivity.bm);
 		FileOutputStream fOut = null;
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -155,7 +155,7 @@ public class Rotate_Crop_Activity extends AppCompatActivity {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		(Image_Display_Activity.bm).compress(Bitmap.CompressFormat.PNG, 100, fOut);
+		( ImageDisplayActivity.bm).compress(Bitmap.CompressFormat.PNG, 100, fOut);
 		try {
 			fOut.flush();
 		} catch (Exception e) {

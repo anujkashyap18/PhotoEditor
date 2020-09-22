@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    tools:context="com.example.photoeditor.Add_Text_Activity">
+    tools:context="com.example.photoeditor.AddTextActivity">
 
     <LinearLayout
         android:id="@+id/view_drawing_pad"

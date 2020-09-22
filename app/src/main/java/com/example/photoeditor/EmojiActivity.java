@@ -37,10 +37,10 @@ import java.util.Date;
 import hani.momanii.supernova_emoji_library.Actions.EmojIconActions;
 import hani.momanii.supernova_emoji_library.Helper.EmojiconEditText;
 
-public class Emoji_Activity extends AppCompatActivity {
+public class EmojiActivity extends AppCompatActivity {
 
 
-	private static final String TAG = Image_Display_Activity.class.getSimpleName();
+	private static final String TAG = ImageDisplayActivity.class.getSimpleName();
 	float vH = 0, vW = 0;
 	float Esize = 105;
 	boolean flg = false;
@@ -50,7 +50,7 @@ public class Emoji_Activity extends AppCompatActivity {
 	EmojIconActions emojIcon;
 	View root_view;
 	DrawingView dv;
-	Bitmap textBit = Image_Display_Activity.bm;
+	Bitmap textBit = ImageDisplayActivity.bm;
 	private String userInputValue = "";
 	private Paint mPaint;
 
@@ -88,11 +88,11 @@ public class Emoji_Activity extends AppCompatActivity {
 
 		{
 			vH = targetH * (1f);
-			vW = (targetH * (1f) / ((Image_Display_Activity.bm).getHeight())) * ((Image_Display_Activity.bm).getWidth());
+			vW = (targetH * (1f) / (( ImageDisplayActivity.bm).getHeight())) * (( ImageDisplayActivity.bm).getWidth());
 		}
 		if (vW > targetW) {
 			vW = targetW;
-			vH = (targetW / ((Image_Display_Activity.bm).getWidth())) * ((Image_Display_Activity.bm).getHeight());
+			vH = (targetW / (( ImageDisplayActivity.bm).getWidth())) * (( ImageDisplayActivity.bm).getHeight());
 		}
 
 		dv = new DrawingView(this);
@@ -159,9 +159,9 @@ public class Emoji_Activity extends AppCompatActivity {
 			@Override
 			public void onClick(View view) {
 				saveBitmap();
-				Image_Display_Activity.bm = textBit;
-				(Image_Display_Activity.imageDisplay).setImageBitmap(Image_Display_Activity.bm);
-				Image_Display_Activity.iHeight = textBit.getHeight();
+				ImageDisplayActivity.bm = textBit;
+				( ImageDisplayActivity.imageDisplay).setImageBitmap( ImageDisplayActivity.bm);
+				ImageDisplayActivity.iHeight = textBit.getHeight();
 				Toast.makeText(getApplicationContext(), "Changes Applied", Toast.LENGTH_SHORT).show();
 			}
 		});
@@ -198,8 +198,8 @@ public class Emoji_Activity extends AppCompatActivity {
 
 	private void saveImage() throws Exception {
 		saveBitmap();
-		Image_Display_Activity.bm = textBit;
-		(Image_Display_Activity.imageDisplay).setImageBitmap(Image_Display_Activity.bm);
+		ImageDisplayActivity.bm = textBit;
+		( ImageDisplayActivity.imageDisplay).setImageBitmap( ImageDisplayActivity.bm);
 		FileOutputStream fOut = null;
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -212,7 +212,7 @@ public class Emoji_Activity extends AppCompatActivity {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		(Image_Display_Activity.bm).compress(Bitmap.CompressFormat.PNG, 100, fOut);
+		( ImageDisplayActivity.bm).compress(Bitmap.CompressFormat.PNG, 100, fOut);
 		try {
 			fOut.flush();
 		} catch (Exception e) {

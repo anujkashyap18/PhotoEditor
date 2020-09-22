@@ -35,30 +35,30 @@
             android:name=".MainActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".Image_Display_Activity"
+            android:name=".ImageDisplayActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ImageDisplayTheme" />
         <activity
-            android:name=".Add_Text_Activity"
-            android:parentActivityName=".Image_Display_Activity"
+            android:name=".AddTextActivity"
+            android:parentActivityName=".ImageDisplayActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Draw_Activity"
-            android:parentActivityName=".Image_Display_Activity"
+            android:name=".DrawActivity"
+            android:parentActivityName=".ImageDisplayActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Emoji_Activity"
-            android:parentActivityName=".Image_Display_Activity"
+            android:name=".EmojiActivity"
+            android:parentActivityName=".ImageDisplayActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Rotate_Crop_Activity"
-            android:parentActivityName=".Image_Display_Activity"
+            android:name=".RotateCropActivity"
+            android:parentActivityName=".ImageDisplayActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Tune_Activity"
-            android:parentActivityName=".Image_Display_Activity"
+            android:name=".TuneActivity"
+            android:parentActivityName=".ImageDisplayActivity"
             android:screenOrientation="portrait" />
     </application>
 

@@ -35,7 +35,7 @@ import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Image_Display_Activity extends AppCompatActivity {
+public class ImageDisplayActivity extends AppCompatActivity {
 
 	private final static String TAG = "DEBUG_BOTTOM_NAV_UTIL";
 	static Bitmap bm = BitmapFactory.decodeFile(MainActivity.mCurrentPhotoPath);
@@ -116,13 +116,13 @@ public class Image_Display_Activity extends AppCompatActivity {
 				switch (item.getItemId()) {
 					case R.id.action_addText:
 
-						Intent addTextIntent = new Intent(Image_Display_Activity.this, Add_Text_Activity.class);
+						Intent addTextIntent = new Intent( ImageDisplayActivity.this, AddTextActivity.class);
 						addTextIntent.putExtra("height", targetH);
 						addTextIntent.putExtra("width", targetW);
 
 						ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-								Image_Display_Activity.this, new Pair<>(findViewById(R.id.imageDisplay), (getString(R.string.transition_image))));
-						ActivityCompat.startActivity(Image_Display_Activity.this, addTextIntent, options.toBundle());
+								ImageDisplayActivity.this, new Pair<>(findViewById(R.id.imageDisplay), (getString(R.string.transition_image))));
+						ActivityCompat.startActivity( ImageDisplayActivity.this, addTextIntent, options.toBundle());
 						break;
 
 //                    case R.id.action_draw:
@@ -135,12 +135,12 @@ public class Image_Display_Activity extends AppCompatActivity {
 
 					case R.id.action_addEmoji:
 
-						Intent emojiIntent = new Intent(Image_Display_Activity.this, Emoji_Activity.class);
+						Intent emojiIntent = new Intent( ImageDisplayActivity.this, EmojiActivity.class);
 						emojiIntent.putExtra("height", targetH);
 						emojiIntent.putExtra("width", targetW);
 						ActivityOptionsCompat optionsEmoji = ActivityOptionsCompat.makeSceneTransitionAnimation(
-								Image_Display_Activity.this, new Pair<>(findViewById(R.id.imageDisplay), (getString(R.string.transition_image))));
-						ActivityCompat.startActivity(Image_Display_Activity.this, emojiIntent, optionsEmoji.toBundle());
+								ImageDisplayActivity.this, new Pair<>(findViewById(R.id.imageDisplay), (getString(R.string.transition_image))));
+						ActivityCompat.startActivity( ImageDisplayActivity.this, emojiIntent, optionsEmoji.toBundle());
 						break;
 
 //                    case R.id.action_rotateCrop:

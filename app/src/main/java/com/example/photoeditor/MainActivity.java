@@ -219,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
 
 		if (requestCode == REQUEST_IMAGE_CAPTURE && ResultCode == Activity.RESULT_OK) {
 
-			Intent i = new Intent(this, Image_Display_Activity.class);
+			Intent i = new Intent(this, ImageDisplayActivity.class);
 			int H = this.getWindow().getDecorView().getHeight();
 			int W = this.getWindow().getDecorView().getWidth();
 			i.putExtra("height", H);
@@ -232,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
 			Cursor cursor = getContentResolver().query(pickedImage, filePath, null, null, null);
 			cursor.moveToFirst();
 			mCurrentPhotoPath = cursor.getString(cursor.getColumnIndex(filePath[0]));
-			Intent i = new Intent(this, Image_Display_Activity.class);
+			Intent i = new Intent(this, ImageDisplayActivity.class);
 			int H = this.getWindow().getDecorView().getHeight();
 			int W = this.getWindow().getDecorView().getWidth();
 			i.putExtra("height", H);

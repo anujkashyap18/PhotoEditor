@@ -27,9 +27,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Tune_Activity extends AppCompatActivity {
+public class TuneActivity extends AppCompatActivity {
 
-	Bitmap textBit = Image_Display_Activity.bm;
+	Bitmap textBit = ImageDisplayActivity.bm;
 	float cont = 1f;
 	float bright = 0f;
 	float sat = 1f;
@@ -148,9 +148,9 @@ public class Tune_Activity extends AppCompatActivity {
 	}
 
 	private void saveBitmap() {
-		Image_Display_Activity.bm = ((BitmapDrawable) tuneDisplay.getDrawable()).getBitmap();
+		ImageDisplayActivity.bm = ((BitmapDrawable) tuneDisplay.getDrawable()).getBitmap();
 		;
-		(Image_Display_Activity.imageDisplay).setImageBitmap(Image_Display_Activity.bm);
+		( ImageDisplayActivity.imageDisplay).setImageBitmap( ImageDisplayActivity.bm);
 		Toast.makeText(getApplicationContext(), "Changes Applied", Toast.LENGTH_SHORT).show();
 	}
 
@@ -168,7 +168,7 @@ public class Tune_Activity extends AppCompatActivity {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		(Image_Display_Activity.bm).compress(Bitmap.CompressFormat.PNG, 100, fOut);
+		( ImageDisplayActivity.bm).compress(Bitmap.CompressFormat.PNG, 100, fOut);
 		try {
 			fOut.flush();
 		} catch (Exception e) {

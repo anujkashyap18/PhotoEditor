@@ -37,13 +37,13 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Add_Text_Activity extends AppCompatActivity implements ColorPickerDialogListener {
+public class AddTextActivity extends AppCompatActivity implements ColorPickerDialogListener {
 
 	private static final int DIALOG_ID = 0;
 	float Esize = 105;
 	boolean flg = false;
 	int colorCode = 0xFFFF0000;
-	Bitmap textBit = Image_Display_Activity.bm;
+	Bitmap textBit = ImageDisplayActivity.bm;
 	private DrawingView dv;
 	private Paint mPaint;
 	private float vH = 0, vW = 0;
@@ -67,15 +67,15 @@ public class Add_Text_Activity extends AppCompatActivity implements ColorPickerD
 
 		{
 			vH = targetH * (1f);
-			vW = (targetH * (1f) / ((Image_Display_Activity.bm).getHeight())) * ((Image_Display_Activity.bm).getWidth());
+			vW = (targetH * (1f) / (( ImageDisplayActivity.bm).getHeight())) * (( ImageDisplayActivity.bm).getWidth());
 			if (vW > targetW) {
 				vW = targetW;
-				vH = (targetW / ((Image_Display_Activity.bm).getWidth())) * ((Image_Display_Activity.bm).getHeight());
+				vH = (targetW / (( ImageDisplayActivity.bm).getWidth())) * (( ImageDisplayActivity.bm).getHeight());
 			}
 		}
 
 		dv = new DrawingView(this);
-		dv.setBackground(new BitmapDrawable(getResources(), Image_Display_Activity.bm));
+		dv.setBackground(new BitmapDrawable(getResources(), ImageDisplayActivity.bm));
 
 		dv.setLayoutParams(new ViewGroup.LayoutParams((int) vW, (int) vH));
 		((LinearLayout) findViewById(R.id.view_drawing_pad)).addView(dv);
@@ -108,7 +108,7 @@ public class Add_Text_Activity extends AppCompatActivity implements ColorPickerD
 						.setDialogId(DIALOG_ID)
 						.setColor(colorCode)
 						.setShowAlphaSlider(true)
-						.show(Add_Text_Activity.this);
+						.show( AddTextActivity.this);
 			}
 		});
 		ImageView saveTextIcon = (ImageView) findViewById(R.id.saveOptionDraw);
@@ -137,9 +137,9 @@ public class Add_Text_Activity extends AppCompatActivity implements ColorPickerD
 			@Override
 			public void onClick(View view) {
 				saveBitmap();
-				Image_Display_Activity.bm = textBit;
-				(Image_Display_Activity.imageDisplay).setImageBitmap(Image_Display_Activity.bm);
-				Image_Display_Activity.iHeight = textBit.getHeight();
+				ImageDisplayActivity.bm = textBit;
+				( ImageDisplayActivity.imageDisplay).setImageBitmap( ImageDisplayActivity.bm);
+				ImageDisplayActivity.iHeight = textBit.getHeight();
 				Toast.makeText(getApplicationContext(), "Changes Applied", Toast.LENGTH_SHORT).show();
 			}
 		});
@@ -177,8 +177,8 @@ public class Add_Text_Activity extends AppCompatActivity implements ColorPickerD
 	//Function to save image to a file
 	private void saveImage() throws Exception {
 		saveBitmap();
-		Image_Display_Activity.bm = textBit;
-		(Image_Display_Activity.imageDisplay).setImageBitmap(Image_Display_Activity.bm);
+		ImageDisplayActivity.bm = textBit;
+		( ImageDisplayActivity.imageDisplay).setImageBitmap( ImageDisplayActivity.bm);
 		FileOutputStream fOut = null;
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -191,7 +191,7 @@ public class Add_Text_Activity extends AppCompatActivity implements ColorPickerD
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		(Image_Display_Activity.bm).compress(Bitmap.CompressFormat.JPEG, 100, fOut);
+		( ImageDisplayActivity.bm).compress(Bitmap.CompressFormat.JPEG, 100, fOut);
 		try {
 			fOut.flush();
 		} catch (Exception e) {
